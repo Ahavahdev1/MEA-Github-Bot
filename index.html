@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MEA - Autonomous Economic Agent</title>
+    <title>Guia Prático MEA - Tipagem & Fair Exchange</title>
     
     <!-- Tipografia Profissional -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,7 +25,6 @@
             --accent-purple: #8b5cf6;
             --accent-blue: #3b82f6;
             --accent-solana: #14F195;
-            --accent-solana-dark: #00C278;
             --border-glass: rgba(255, 255, 255, 0.1);
             --bg-glass: rgba(255, 255, 255, 0.03);
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -41,9 +40,9 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        .glow-orb { position: absolute; border-radius: 50%; filter: blur(120px); opacity: 0.3; z-index: -1; }
+        .glow-orb { position: absolute; border-radius: 50%; filter: blur(120px); opacity: 0.25; z-index: -1; }
         .orb-1 { top: -10%; left: -10%; width: 500px; height: 500px; background: var(--accent-purple); }
-        .orb-2 { top: 30%; right: -10%; width: 400px; height: 400px; background: var(--accent-solana); opacity: 0.15; }
+        .orb-2 { top: 40%; right: -10%; width: 400px; height: 400px; background: var(--accent-solana); opacity: 0.15; }
 
         .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
 
@@ -66,21 +65,17 @@
         .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(139, 92, 246, 0.3); }
 
         /* ================= HERO ================= */
-        .hero { padding: 100px 0 60px; text-align: center; }
+        .hero { padding: 90px 0 60px; text-align: center; }
         .badge {
             display: inline-flex; align-items: center; gap: 6px; background: var(--bg-glass); border: 1px solid var(--border-glass); padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; color: var(--accent-solana); margin-bottom: 24px;
         }
-        .hero h1 { font-size: 3.8rem; font-weight: 800; line-height: 1.1; letter-spacing: -1.5px; margin-bottom: 24px; }
+        .hero h1 { font-size: 3.5rem; font-weight: 800; line-height: 1.1; letter-spacing: -1.5px; margin-bottom: 24px; }
         .text-gradient { background: linear-gradient(to right, #fff, var(--text-secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .text-gradient-purple { background: linear-gradient(to right, var(--accent-blue), var(--accent-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero p { font-size: 1.15rem; color: var(--text-secondary); max-width: 650px; margin: 0 auto 40px; }
+        .hero p { font-size: 1.1rem; color: var(--text-secondary); max-width: 700px; margin: 0 auto; }
 
         /* ================= WORKFLOW EXPLAINER ================= */
-        .workflow-section { padding: 80px 0; border-top: 1px solid var(--border-glass); }
-        .section-header { text-align: center; margin-bottom: 60px; }
-        .section-header h2 { font-size: 2.2rem; font-weight: 800; margin-bottom: 16px; }
-        .section-header p { color: var(--text-secondary); font-size: 1.1rem; }
-
+        .workflow-section { padding: 60px 0 100px; }
         .step-grid { display: grid; gap: 40px; }
         
         .step-card {
@@ -90,33 +85,37 @@
         .step-info { padding: 40px; display: flex; flex-direction: column; justify-content: center; }
         .step-number { font-family: 'JetBrains Mono'; font-size: 0.9rem; color: var(--accent-purple); font-weight: 600; margin-bottom: 12px; display: block; text-transform: uppercase; letter-spacing: 1px; }
         .step-info h3 { font-size: 1.5rem; margin-bottom: 16px; font-weight: 600; }
-        .step-info p { color: var(--text-secondary); margin-bottom: 24px; }
+        .step-info p { color: var(--text-secondary); margin-bottom: 24px; font-size: 0.95rem; }
+        .step-info ul { color: var(--text-secondary); font-size: 0.95rem; margin-left: 20px; margin-bottom: 24px; }
+        .step-info li { margin-bottom: 8px; }
 
         .step-visual { background: var(--bg-tertiary); padding: 32px; border-left: 1px solid var(--border-glass); display: flex; flex-direction: column; justify-content: center; }
 
         /* Code snippets & Mockups */
         .code-block {
-            background: #0d1117; border: 1px solid #30363d; border-radius: 8px; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; padding: 16px; overflow-x: auto; color: #c9d1d9; position: relative;
+            background: #0d1117; border: 1px solid #30363d; border-radius: 8px; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; padding: 16px; overflow-x: auto; color: #c9d1d9; position: relative; line-height: 1.5;
         }
         .code-block .comment { color: #8b949e; }
         .code-block .keyword { color: #ff7b72; }
         .code-block .string { color: #a5d6ff; }
         .code-block .cmd { color: #d2a8ff; }
+        .code-block .solana { color: var(--accent-solana); font-weight: bold; }
         
         .mock-github-comment {
             background: #0d1117; border: 1px solid #30363d; border-radius: 8px; font-size: 0.85rem; overflow: hidden;
         }
         .mock-header { background: #161b22; padding: 10px 16px; border-bottom: 1px solid #30363d; display: flex; align-items: center; gap: 10px; color: #8b949e; }
         .mock-header img { width: 24px; height: 24px; border-radius: 50%; }
-        .mock-body { padding: 16px; }
-        .mock-body strong { color: #c9d1d9; }
-        .mock-box { background: rgba(20, 241, 149, 0.05); border: 1px solid rgba(20, 241, 149, 0.2); padding: 12px; border-radius: 6px; margin: 12px 0; font-family: 'JetBrains Mono'; }
+        .mock-body { padding: 16px; color: #c9d1d9; }
+        .mock-box { background: rgba(20, 241, 149, 0.05); border: 1px solid rgba(20, 241, 149, 0.2); padding: 16px; border-radius: 6px; margin: 12px 0; font-family: 'JetBrains Mono'; line-height: 1.8; }
+        
+        .copy-badge { background: #161b22; border: 1px solid #30363d; padding: 2px 6px; border-radius: 4px; color: #8b949e; font-size: 0.75rem; vertical-align: middle; }
 
         /* ================= RESPONSIVE ================= */
         @media (max-width: 900px) {
             .step-card { grid-template-columns: 1fr; }
             .step-visual { border-left: none; border-top: 1px solid var(--border-glass); }
-            .hero h1 { font-size: 2.8rem; }
+            .hero h1 { font-size: 2.5rem; }
         }
     </style>
 </head>
@@ -128,119 +127,119 @@
     <header>
         <div class="container header-content">
             <div class="logo">
-                <i data-lucide="shield-check"></i> MEA.
+                <i data-lucide="shield-check"></i> MEA
             </div>
-            <a href="#guide" class="btn-primary">View Documentation</a>
+            <a href="https://github.com/Ahavahdev1/MEA-Github-Bot" target="_blank" class="btn-primary">Ver Repositório</a>
         </div>
     </header>
 
     <section class="hero container">
         <div class="badge">
-            <i data-lucide="zap" size="14"></i> Trustless Developer Operations
+            <i data-lucide="rocket" size="14"></i> Guia Prático
         </div>
-        <h1 class="text-gradient">Code delivered. <br> <span class="text-gradient-purple">Paid on-chain.</span></h1>
-        <p>A completely trustless Fair Exchange Protocol. MEA writes and audits the code, encrypts it, and only hands over the decryption key when the Solana network confirms your payment.</p>
+        <h1 class="text-gradient">MEA Autonomous Agent <br> <span class="text-gradient-purple">Foco em Tipagem Estática</span></h1>
+        <p>Aprenda a conectar a MEA ao seu repositório sem precisar clonar código, solicitar uma refatoração em TypeScript e liberar o seu patch via contrato Solana.</p>
     </section>
 
-    <!-- Detailed Step-by-Step Guide -->
-    <section id="guide" class="workflow-section">
+    <section class="workflow-section">
         <div class="container">
-            <div class="section-header">
-                <h2 class="text-gradient">The Fair Exchange Protocol in Action</h2>
-                <p>How to request code, pay the dynamic invoice, and apply the patch.</p>
-            </div>
-
             <div class="step-grid">
                 
-                <!-- STEP 1 -->
+                <!-- PASSO 0 -->
                 <div class="step-card">
                     <div class="step-info">
-                        <span class="step-number">Step 01 // Request</span>
-                        <h3>Open an Issue via Webhook</h3>
-                        <p>No need to grant repository read/write access or clone code locally. Just configure the MEA Webhook in your repo settings and open an issue detailing your problem.</p>
-                        <ul style="color: var(--text-secondary); font-size: 0.95rem; margin-left: 20px;">
-                            <li>Payload URL: <code>mea-ingress.network/webhook</code></li>
-                            <li>Events: Trigger only on <strong>Issues</strong>.</li>
+                        <span class="step-number">Passo 0 // Setup</span>
+                        <h3>A Ponte com a MEA (Webhook)</h3>
+                        <p>Para que seu repositório envie os pedidos à MEA, configure o Webhook (feito apenas 1 vez). Vá em <strong>Settings > Webhooks > Add webhook</strong> e configure exatamente assim:</p>
+                        <ul>
+                            <li><strong>Payload URL:</strong> A URL central do servidor.</li>
+                            <li><strong>Content type:</strong> application/json</li>
+                            <li><strong>Events:</strong> Selecione "Let me select individual events" e marque <strong>Issues</strong>.</li>
+                            <li>Deixe <strong>Active</strong> marcado.</li>
                         </ul>
                     </div>
                     <div class="step-visual">
                         <div class="code-block">
-                            <span class="comment"># You just type this on GitHub Issues:</span><br><br>
-                            <span class="keyword">Title:</span> Refactor App.js to use TypeScript<br>
-                            <span class="keyword">Body:</span> Please create interfaces for the User object and type the fetch calls. Ensure no memory leaks.
+                            <span class="comment">// 1. Insira a Payload URL exata:</span><br>
+                            <span class="string">https://desktop-2sltquq.tailece129.ts.net/github-webhook</span>
+                            <br><br>
+                            <span class="comment">// 2. Configure os parâmetros:</span><br>
+                            <span class="keyword">Content-Type:</span> application/json<br>
+                            <span class="keyword">Trigger:</span> [x] Issues
                         </div>
                     </div>
                 </div>
 
-                <!-- STEP 2 -->
+                <!-- PASSO 1 -->
                 <div class="step-card">
                     <div class="step-info">
-                        <span class="step-number">Step 02 // Synthesis & Invoice</span>
-                        <h3>MEA Audits & Generates Invoice</h3>
-                        <p>The MEA Cognitive Agent synthesizes the fix, runs an AST Security Audit, and calculates a price based on complexity. It then encrypts the `.patch` file and replies to your issue with the cipher and a Solana Invoice.</p>
+                        <span class="step-number">Passo 1 // Request</span>
+                        <h3>Como Pedir a Tipagem</h3>
+                        <p>A ponte está armada. Vá na aba <strong>Issues</strong> do seu repositório e clique em <em>New Issue</em>. O servidor central da MEA irá interceptar o pedido, analisar o código e gerar um patch limpo com IA.</p>
+                    </div>
+                    <div class="step-visual">
+                        <div class="code-block">
+                            <span class="comment"># TÍTULO DA ISSUE</span><br>
+                            Refatoração: Adicionar tipagem estática e PropTypes no componente App.js<br><br>
+                            
+                            <span class="comment"># DESCRIÇÃO (BODY)</span><br>
+                            Preciso analisar o arquivo raiz App.js e estruturar as tipagens corretas (TypeScript interfaces ou PropTypes) para garantir maior segurança de tipos. Analise a estrutura e forneça o patch limpo e refatorado.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PASSO 2 -->
+                <div class="step-card">
+                    <div class="step-info">
+                        <span class="step-number">Passo 2 // Pagamento</span>
+                        <h3>Pagar Fatura & Baixar Código</h3>
+                        <p>A MEA protege o código via protocolo <em>Fair Exchange</em>. O patch virá trancado. Envie o valor exato em SOL para a carteira destino informada.</p>
+                        <p style="color: #ffbd2e; font-weight: 500; font-size: 0.85rem; background: rgba(255,189,46,0.1); padding: 12px; border-radius: 8px; border: 1px solid rgba(255,189,46,0.2);">
+                            ⚠️ ATENÇÃO: É obrigatório incluir o código na aba "Memo" da Phantom/Solflare para o Oráculo identificar você.
+                        </p>
                     </div>
                     <div class="step-visual">
                         <div class="mock-github-comment">
                             <div class="mock-header">
                                 <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="filter: invert(1);" alt="bot">
-                                <span><strong>MEA-Bot</strong> commented 1 minute ago</span>
+                                <span><strong>MEA-Bot</strong> bot</span>
                             </div>
                             <div class="mock-body">
-                                AST Audit: <span style="color:#7ee787;">PASSED</span> ✅<br>
-                                I have synthesized the solution. Download your encrypted patch:<br>
-                                <a href="#" style="color:#79c0ff; text-decoration:none;">📥 mea_solution_issue42.enc</a>
-                                
+                                Eu gerei a refatoração. O código está trancado por AES-256.<br>
                                 <div class="mock-box">
-                                    <span style="color:var(--text-muted);">// SOLANA INVOICE</span><br>
-                                    Amount: <strong style="color:var(--accent-solana);">0.05 SOL</strong><br>
-                                    Vault: <span style="color:#a5d6ff;">MEA...VaultAddress...xyz</span><br>
-                                    Memo: <strong style="color:#ffbd2e;">MEA-ISSUE-42</strong>
+                                    <span style="color:var(--text-muted);">// FATURA SOLANA GERADA</span><br>
+                                    Valor: <strong class="solana">0.05 SOL</strong><br>
+                                    Carteira: <span style="color:#a5d6ff;">49oQrKVUwstTSjrGQtok6qTcSp2i9sRsD3sJ7vYbEgGD</span><br>
+                                    Memo (Obrigatório): <strong style="color:#ff7b72;">MEA-ISSUE-4</strong>
                                 </div>
-                                <em>Waiting for on-chain settlement...</em>
+                                <em>Aguardando confirmação na blockchain...</em>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- STEP 3 -->
+                <!-- PASSO 3 -->
                 <div class="step-card">
                     <div class="step-info">
-                        <span class="step-number">Step 03 // Settlement</span>
-                        <h3>Pay the Invoice On-Chain</h3>
-                        <p>Send the exact requested SOL amount to the Vault Address. <strong>Crucial:</strong> You must include the Issue ID in the Transaction Memo so the Solana Oracle can match the payment to your request.</p>
-                        <p style="font-size: 0.85rem; color: var(--text-muted);">* You can use Phantom Wallet, Solflare, or the Solana CLI.</p>
+                        <span class="step-number">Passo 3 // Decrypt</span>
+                        <h3>Desencriptar e Aplicar</h3>
+                        <p>Assim que o Oráculo detectar seu pagamento, ele publicará a chave de revelação diretamente na sua Issue do GitHub.</p>
+                        <p>Use a chave revelada para descriptografar o bloco de código bloqueado e aplique o <code>App.js</code> perfeitamente tipado no seu projeto!</p>
                     </div>
                     <div class="step-visual">
-                        <div class="code-block">
-                            <span class="comment"># Example using Solana CLI</span><br>
-                            <span class="cmd">solana</span> transfer \<br>
-                            &nbsp;&nbsp;MEAVaultAddressXYZ1234567890 \<br>
-                            &nbsp;&nbsp;0.05 \<br>
-                            &nbsp;&nbsp;--with-memo <span class="string">"MEA-ISSUE-42"</span> \<br>
-                            &nbsp;&nbsp;--url mainnet-beta<br><br>
-                            <span class="comment"># Signature: 5KjX... Confirmed</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- STEP 4 -->
-                <div class="step-card">
-                    <div class="step-info">
-                        <span class="step-number">Step 04 // Decrypt & Apply</span>
-                        <h3>Instant Decryption Key</h3>
-                        <p>In seconds, the MEA Solana Oracle detects the payment. It replies to the GitHub thread revealing the AES-256 decryption key and IV. You decrypt the file locally and apply the patch to your code.</p>
-                    </div>
-                    <div class="step-visual">
-                        <div class="code-block">
-                            <span class="comment"># 1. Decrypt the downloaded patch</span><br>
-                            <span class="cmd">openssl</span> enc -d -aes-256-cbc \<br>
-                            &nbsp;&nbsp;-in mea_solution_issue42.enc \<br>
-                            &nbsp;&nbsp;-out fix.patch \<br>
-                            &nbsp;&nbsp;-K <span class="string">&lt;HEX_KEY_FROM_ORACLE&gt;</span> \<br>
-                            &nbsp;&nbsp;-iv <span class="string">&lt;HEX_IV_FROM_ORACLE&gt;</span><br><br>
-                            <span class="comment"># 2. Apply the patch to your repository</span><br>
-                            <span class="cmd">git</span> apply fix.patch<br><br>
-                            <span class="comment"># 3. Commit the perfectly typed code 🚀</span>
+                        <div class="code-block" style="word-break: break-all;">
+                            <span class="comment"># 1. O oráculo revela sua chave na Issue:</span><br>
+                            <span class="keyword">Chave AES:</span> clNRiyCFiZMem0VXOHy47juHjWqbkpSx6lBA7J4Ze2I=<br><br>
+                            
+                            <span class="comment"># 2. Seu código encriptado fornecido antes:</span><br>
+                            <span class="string">gAAAAABqoCve_XYZ123_BLOCO_ENCRIPTADO...</span><br><br>
+                            
+                            <span class="comment"># 3. Aplicando a chave, o patch é revelado:</span><br>
+                            <span class="cmd">interface UserProps {</span><br>
+                            <span class="cmd">&nbsp;&nbsp;id: number;</span><br>
+                            <span class="cmd">&nbsp;&nbsp;name: string;</span><br>
+                            <span class="cmd">}</span><br>
+                            <span class="comment">// Seu código está pronto para uso! 🚀</span>
                         </div>
                     </div>
                 </div>
@@ -252,8 +251,8 @@
     <!-- Footer -->
     <footer style="padding: 40px 0; text-align: center; border-top: 1px solid var(--border-glass); color: var(--text-secondary); font-size: 0.9rem; background: var(--bg-main);">
         <div class="container">
-            <p>&copy; 2024 MEA Autonomous Economic Agent. MIT License.</p>
-            <p style="margin-top: 8px; color: var(--text-muted);">Sovereign Code. Sovereign Payments.</p>
+            <p>&copy; 2024 MEA Autonomous Economic Agent.</p>
+            <p style="margin-top: 8px; color: var(--text-muted);">Sovereign Intelligence. Fair Exchange.</p>
         </div>
     </footer>
 
