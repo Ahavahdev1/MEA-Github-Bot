@@ -56,6 +56,7 @@ graph TD
     style GS fill:#1a365d,stroke:#63b3ed,stroke-width:2px,color:#fff
     style PE fill:#44337a,stroke:#b794f4,stroke-width:2px,color:#fff
     style SO fill:#1a202c,stroke:#38a169,stroke-width:2px,color:#fff
+
 🔗 How to Connect Your Repository (For Testers & Users)
 To have MEA write, refactor, or type code for your GitHub repositories using the central sovereign engine, you only need to configure a Webhook (no code cloning required):
 Step 1: Add the Webhook
@@ -99,4 +100,3 @@ Distributed under the MIT License. See LICENSE for more information.
 <div align="center">
 <p><b>Built with Sovereign Intelligence.</b></p>
 </div>
-```
