@@ -8,446 +8,255 @@
     <!-- Tipografia Profissional -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
     
     <!-- Ícones -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
-        /* ================= CSS VARIABLES (Senior Practice) ================= */
+        /* ================= CSS VARIABLES ================= */
         :root {
             --bg-main: #050505;
             --bg-secondary: #0a0a0a;
+            --bg-tertiary: #111111;
             --text-primary: #f8fafc;
             --text-secondary: #94a3b8;
+            --text-muted: #64748b;
             --accent-purple: #8b5cf6;
             --accent-blue: #3b82f6;
             --accent-solana: #14F195;
-            --border-glass: rgba(255, 255, 255, 0.08);
+            --accent-solana-dark: #00C278;
+            --border-glass: rgba(255, 255, 255, 0.1);
             --bg-glass: rgba(255, 255, 255, 0.03);
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         /* ================= RESET & BASE ================= */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-main);
             color: var(--text-primary);
             line-height: 1.6;
-            overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Elementos de background "glowing" modernos */
-        .glow-orb {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(120px);
-            opacity: 0.4;
-            z-index: -1;
-        }
-        .orb-1 {
-            top: -10%;
-            left: -10%;
-            width: 500px;
-            height: 500px;
-            background: var(--accent-purple);
-        }
-        .orb-2 {
-            top: 20%;
-            right: -10%;
-            width: 400px;
-            height: 400px;
-            background: var(--accent-blue);
-            opacity: 0.2;
-        }
+        .glow-orb { position: absolute; border-radius: 50%; filter: blur(120px); opacity: 0.3; z-index: -1; }
+        .orb-1 { top: -10%; left: -10%; width: 500px; height: 500px; background: var(--accent-purple); }
+        .orb-2 { top: 30%; right: -10%; width: 400px; height: 400px; background: var(--accent-solana); opacity: 0.15; }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
 
         /* ================= HEADER ================= */
         header {
-            padding: 24px 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            padding: 20px 0;
             border-bottom: 1px solid var(--border-glass);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(12px);
             position: sticky;
             top: 0;
             z-index: 100;
         }
-
-        .logo {
-            font-weight: 800;
-            font-size: 1.25rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            letter-spacing: -0.5px;
-        }
-
+        .header-content { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-weight: 800; font-size: 1.25rem; display: flex; align-items: center; gap: 8px; letter-spacing: -0.5px; }
         .logo i { color: var(--accent-blue); }
-
         .btn-primary {
             background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
-            color: white;
-            padding: 10px 20px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: var(--transition);
-            border: 1px solid rgba(255,255,255,0.1);
+            color: white; padding: 10px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9rem; border: 1px solid rgba(255,255,255,0.1); transition: var(--transition);
         }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(139, 92, 246, 0.3); }
 
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(139, 92, 246, 0.3);
-        }
-
-        /* ================= HERO SECTION ================= */
-        .hero {
-            padding: 120px 0 80px;
-            text-align: center;
-            position: relative;
-        }
-
+        /* ================= HERO ================= */
+        .hero { padding: 100px 0 60px; text-align: center; }
         .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: var(--bg-glass);
-            border: 1px solid var(--border-glass);
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--accent-solana);
-            margin-bottom: 24px;
+            display: inline-flex; align-items: center; gap: 6px; background: var(--bg-glass); border: 1px solid var(--border-glass); padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; color: var(--accent-solana); margin-bottom: 24px;
         }
+        .hero h1 { font-size: 3.8rem; font-weight: 800; line-height: 1.1; letter-spacing: -1.5px; margin-bottom: 24px; }
+        .text-gradient { background: linear-gradient(to right, #fff, var(--text-secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .text-gradient-purple { background: linear-gradient(to right, var(--accent-blue), var(--accent-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { font-size: 1.15rem; color: var(--text-secondary); max-width: 650px; margin: 0 auto 40px; }
 
-        .hero h1 {
-            font-size: 4rem;
-            font-weight: 800;
-            line-height: 1.1;
-            letter-spacing: -1.5px;
-            margin-bottom: 24px;
-        }
+        /* ================= WORKFLOW EXPLAINER ================= */
+        .workflow-section { padding: 80px 0; border-top: 1px solid var(--border-glass); }
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-header h2 { font-size: 2.2rem; font-weight: 800; margin-bottom: 16px; }
+        .section-header p { color: var(--text-secondary); font-size: 1.1rem; }
 
-        .text-gradient {
-            background: linear-gradient(to right, #fff, var(--text-secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .text-gradient-purple {
-            background: linear-gradient(to right, var(--accent-blue), var(--accent-purple));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            color: var(--text-secondary);
-            max-width: 700px;
-            margin: 0 auto 40px;
-        }
-
-        /* Terminal Mockup */
-        .terminal {
-            background: #0d1117;
-            border: 1px solid #30363d;
-            border-radius: 12px;
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: left;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-        }
-
-        .terminal-header {
-            background: #161b22;
-            padding: 12px 16px;
-            display: flex;
-            gap: 8px;
-            border-bottom: 1px solid #30363d;
-        }
-
-        .dot { width: 12px; height: 12px; border-radius: 50%; }
-        .dot.red { background: #ff5f56; }
-        .dot.yellow { background: #ffbd2e; }
-        .dot.green { background: #27c93f; }
-
-        .terminal-body {
-            padding: 24px;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.9rem;
-            color: #c9d1d9;
-        }
+        .step-grid { display: grid; gap: 40px; }
         
-        .c-purple { color: #d2a8ff; }
-        .c-green { color: #7ee787; }
-        .c-blue { color: #79c0ff; }
-        .c-comment { color: #8b949e; }
-
-        /* ================= FEATURES SECTION ================= */
-        .features {
-            padding: 100px 0;
-            background: linear-gradient(to bottom, var(--bg-main), var(--bg-secondary));
+        .step-card {
+            background: var(--bg-secondary); border: 1px solid var(--border-glass); border-radius: 16px; overflow: hidden; display: grid; grid-template-columns: 1fr 1fr; align-items: stretch;
         }
 
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 60px;
-        }
+        .step-info { padding: 40px; display: flex; flex-direction: column; justify-content: center; }
+        .step-number { font-family: 'JetBrains Mono'; font-size: 0.9rem; color: var(--accent-purple); font-weight: 600; margin-bottom: 12px; display: block; text-transform: uppercase; letter-spacing: 1px; }
+        .step-info h3 { font-size: 1.5rem; margin-bottom: 16px; font-weight: 600; }
+        .step-info p { color: var(--text-secondary); margin-bottom: 24px; }
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
-        }
+        .step-visual { background: var(--bg-tertiary); padding: 32px; border-left: 1px solid var(--border-glass); display: flex; flex-direction: column; justify-content: center; }
 
-        .card {
-            background: var(--bg-glass);
-            border: 1px solid var(--border-glass);
-            padding: 32px;
-            border-radius: 16px;
-            backdrop-filter: blur(10px);
-            transition: var(--transition);
+        /* Code snippets & Mockups */
+        .code-block {
+            background: #0d1117; border: 1px solid #30363d; border-radius: 8px; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; padding: 16px; overflow-x: auto; color: #c9d1d9; position: relative;
         }
-
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(139, 92, 246, 0.3);
-            background: rgba(255, 255, 255, 0.05);
+        .code-block .comment { color: #8b949e; }
+        .code-block .keyword { color: #ff7b72; }
+        .code-block .string { color: #a5d6ff; }
+        .code-block .cmd { color: #d2a8ff; }
+        
+        .mock-github-comment {
+            background: #0d1117; border: 1px solid #30363d; border-radius: 8px; font-size: 0.85rem; overflow: hidden;
         }
-
-        .card i {
-            color: var(--accent-blue);
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        .card h3 {
-            font-size: 1.25rem;
-            margin-bottom: 12px;
-            font-weight: 600;
-        }
-
-        .card p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-        }
-
-        /* ================= HOW IT WORKS (ZERO SETUP) ================= */
-        .how-it-works {
-            padding: 100px 0;
-            border-top: 1px solid var(--border-glass);
-        }
-
-        .timeline {
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .step {
-            display: flex;
-            gap: 24px;
-            align-items: flex-start;
-        }
-
-        .step-number {
-            width: 48px;
-            height: 48px;
-            background: rgba(139, 92, 246, 0.1);
-            border: 1px solid rgba(139, 92, 246, 0.3);
-            color: var(--accent-purple);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.25rem;
-            font-weight: 800;
-            flex-shrink: 0;
-        }
-
-        .step-content {
-            background: var(--bg-glass);
-            border: 1px solid var(--border-glass);
-            padding: 24px;
-            border-radius: 16px;
-            flex-grow: 1;
-        }
-
-        .step-content h4 {
-            font-size: 1.25rem;
-            margin-bottom: 8px;
-        }
-
-        .step-content p {
-            color: var(--text-secondary);
-            margin-bottom: 16px;
-        }
-
-        .code-snippet {
-            background: #000;
-            padding: 12px 16px;
-            border-radius: 8px;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.85rem;
-            color: #79c0ff;
-            border: 1px solid #30363d;
-        }
-
-        /* ================= FOOTER ================= */
-        footer {
-            padding: 40px 0;
-            text-align: center;
-            border-top: 1px solid var(--border-glass);
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            background: var(--bg-secondary);
-        }
+        .mock-header { background: #161b22; padding: 10px 16px; border-bottom: 1px solid #30363d; display: flex; align-items: center; gap: 10px; color: #8b949e; }
+        .mock-header img { width: 24px; height: 24px; border-radius: 50%; }
+        .mock-body { padding: 16px; }
+        .mock-body strong { color: #c9d1d9; }
+        .mock-box { background: rgba(20, 241, 149, 0.05); border: 1px solid rgba(20, 241, 149, 0.2); padding: 12px; border-radius: 6px; margin: 12px 0; font-family: 'JetBrains Mono'; }
 
         /* ================= RESPONSIVE ================= */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .hero p { font-size: 1rem; }
-            .step { flex-direction: column; }
+        @media (max-width: 900px) {
+            .step-card { grid-template-columns: 1fr; }
+            .step-visual { border-left: none; border-top: 1px solid var(--border-glass); }
+            .hero h1 { font-size: 2.8rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Background Orbs -->
     <div class="glow-orb orb-1"></div>
     <div class="glow-orb orb-2"></div>
 
-    <!-- Header -->
     <header>
-        <div class="container" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+        <div class="container header-content">
             <div class="logo">
-                <i data-lucide="shield-check"></i> MEA
+                <i data-lucide="shield-check"></i> MEA.
             </div>
-            <a href="#setup" class="btn-primary">Connect Repository</a>
+            <a href="#guide" class="btn-primary">View Documentation</a>
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero container">
         <div class="badge">
-            <i data-lucide="zap" size="14"></i> Powered by Sovereign Intelligence & Solana
+            <i data-lucide="zap" size="14"></i> Trustless Developer Operations
         </div>
-        <h1 class="text-gradient">Hire a Sovereign AI <br> <span class="text-gradient-purple">for your GitHub.</span></h1>
-        <p>No code cloning. No API keys. Just plug the webhook and let MEA evaluate complexity, audit AST, benchmark RAM, and settle payments on-chain via Solana.</p>
-        
-        <!-- Terminal Mockup -->
-        <div class="terminal">
-            <div class="terminal-header">
-                <div class="dot red"></div>
-                <div class="dot yellow"></div>
-                <div class="dot green"></div>
-            </div>
-            <div class="terminal-body">
-                <span class="c-comment"># 1. User opens a GitHub issue</span><br>
-                <span class="c-purple">Sentry:</span> Intercepted issue <span class="c-blue">"Refactor App.js to TS"</span><br>
-                <span class="c-purple">CoderAgent:</span> Synthesizing code... [AST Check: <span class="c-green">PASSED</span>]<br>
-                <span class="c-purple">CryptoEngine:</span> Encrypting patch with AES-256.<br>
-                <br>
-                <span class="c-comment"># 2. MEA posts encrypted patch & dynamic invoice</span><br>
-                <span class="c-purple">PricingEngine:</span> Invoice generated -> <span class="c-green">0.05 SOL</span> (Memo: MEA-ISSUE-42)<br>
-                <span class="c-purple">SolanaOracle:</span> Awaiting settlement on Mainnet...<br>
-            </div>
-        </div>
+        <h1 class="text-gradient">Code delivered. <br> <span class="text-gradient-purple">Paid on-chain.</span></h1>
+        <p>A completely trustless Fair Exchange Protocol. MEA writes and audits the code, encrypts it, and only hands over the decryption key when the Solana network confirms your payment.</p>
     </section>
 
-    <!-- Features Section -->
-    <section class="features">
+    <!-- Detailed Step-by-Step Guide -->
+    <section id="guide" class="workflow-section">
         <div class="container">
-            <h2 class="section-title text-gradient">Not just a bot. <br> An Economic Agent.</h2>
-            <div class="grid">
-                <div class="card">
-                    <i data-lucide="brain-circuit" size="32"></i>
-                    <h3>Cognitive Code Synthesis</h3>
-                    <p>Powered by local LLMs (Ollama) and QuantumBrain RAG. MEA analyzes your architecture contextually before writing a single line of code.</p>
-                </div>
-                <div class="card">
-                    <i data-lucide="file-check-2" size="32"></i>
-                    <h3>AST Safety Auditing</h3>
-                    <p>Every patch goes through the GuardianEngine. If the AST inspection fails, the QAAgent initiates an auto-heal loop before delivery.</p>
-                </div>
-                <div class="card">
-                    <i data-lucide="coins" size="32"></i>
-                    <h3>Fair Exchange Protocol</h3>
-                    <p>Real code is never given for free. Solutions are encrypted. The decryption key is only revealed upon on-chain Solana payment confirmation.</p>
-                </div>
+            <div class="section-header">
+                <h2 class="text-gradient">The Fair Exchange Protocol in Action</h2>
+                <p>How to request code, pay the dynamic invoice, and apply the patch.</p>
             </div>
-        </div>
-    </section>
 
-    <!-- How it Works (Zero Setup) -->
-    <section id="setup" class="how-it-works">
-        <div class="container">
-            <h2 class="section-title text-gradient">Zero-Friction Integration</h2>
-            <p style="text-align: center; color: var(--text-secondary); margin-top: -40px; margin-bottom: 60px;">No need to give read/write access to your entire codebase. Connect instantly.</p>
-            
-            <div class="timeline">
-                <!-- Step 1 -->
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h4>Add the Webhook</h4>
-                        <p>Go to your repository settings on GitHub and add the MEA Ingress URL. Select `application/json` and trigger for `Issues`.</p>
-                        <div class="code-snippet">https://desktop-2sltquq.tailece129.ts.net/github-webhook</div>
+            <div class="step-grid">
+                
+                <!-- STEP 1 -->
+                <div class="step-card">
+                    <div class="step-info">
+                        <span class="step-number">Step 01 // Request</span>
+                        <h3>Open an Issue via Webhook</h3>
+                        <p>No need to grant repository read/write access or clone code locally. Just configure the MEA Webhook in your repo settings and open an issue detailing your problem.</p>
+                        <ul style="color: var(--text-secondary); font-size: 0.95rem; margin-left: 20px;">
+                            <li>Payload URL: <code>mea-ingress.network/webhook</code></li>
+                            <li>Events: Trigger only on <strong>Issues</strong>.</li>
+                        </ul>
+                    </div>
+                    <div class="step-visual">
+                        <div class="code-block">
+                            <span class="comment"># You just type this on GitHub Issues:</span><br><br>
+                            <span class="keyword">Title:</span> Refactor App.js to use TypeScript<br>
+                            <span class="keyword">Body:</span> Please create interfaces for the User object and type the fetch calls. Ensure no memory leaks.
+                        </div>
                     </div>
                 </div>
 
-                <!-- Step 2 -->
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h4>Open an Issue</h4>
-                        <p>Just create an issue detailing the feature or bugfix. MEA intercepts the webhook, synthesizes the fix, audits it, and replies with an encrypted payload.</p>
+                <!-- STEP 2 -->
+                <div class="step-card">
+                    <div class="step-info">
+                        <span class="step-number">Step 02 // Synthesis & Invoice</span>
+                        <h3>MEA Audits & Generates Invoice</h3>
+                        <p>The MEA Cognitive Agent synthesizes the fix, runs an AST Security Audit, and calculates a price based on complexity. It then encrypts the `.patch` file and replies to your issue with the cipher and a Solana Invoice.</p>
+                    </div>
+                    <div class="step-visual">
+                        <div class="mock-github-comment">
+                            <div class="mock-header">
+                                <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="filter: invert(1);" alt="bot">
+                                <span><strong>MEA-Bot</strong> commented 1 minute ago</span>
+                            </div>
+                            <div class="mock-body">
+                                AST Audit: <span style="color:#7ee787;">PASSED</span> ✅<br>
+                                I have synthesized the solution. Download your encrypted patch:<br>
+                                <a href="#" style="color:#79c0ff; text-decoration:none;">📥 mea_solution_issue42.enc</a>
+                                
+                                <div class="mock-box">
+                                    <span style="color:var(--text-muted);">// SOLANA INVOICE</span><br>
+                                    Amount: <strong style="color:var(--accent-solana);">0.05 SOL</strong><br>
+                                    Vault: <span style="color:#a5d6ff;">MEA...VaultAddress...xyz</span><br>
+                                    Memo: <strong style="color:#ffbd2e;">MEA-ISSUE-42</strong>
+                                </div>
+                                <em>Waiting for on-chain settlement...</em>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Step 3 -->
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h4>On-Chain Settlement</h4>
-                        <p>Transfer the exact SOL amount to the provided vault wallet using the specific Issue ID as a Memo. The Solana Oracle automatically posts the AES decryption key in the issue thread.</p>
-                        <div class="code-snippet" style="color: #7ee787;">Transaction confirmed. Decryption key: xxxx-xxxx-xxxx</div>
+                <!-- STEP 3 -->
+                <div class="step-card">
+                    <div class="step-info">
+                        <span class="step-number">Step 03 // Settlement</span>
+                        <h3>Pay the Invoice On-Chain</h3>
+                        <p>Send the exact requested SOL amount to the Vault Address. <strong>Crucial:</strong> You must include the Issue ID in the Transaction Memo so the Solana Oracle can match the payment to your request.</p>
+                        <p style="font-size: 0.85rem; color: var(--text-muted);">* You can use Phantom Wallet, Solflare, or the Solana CLI.</p>
+                    </div>
+                    <div class="step-visual">
+                        <div class="code-block">
+                            <span class="comment"># Example using Solana CLI</span><br>
+                            <span class="cmd">solana</span> transfer \<br>
+                            &nbsp;&nbsp;MEAVaultAddressXYZ1234567890 \<br>
+                            &nbsp;&nbsp;0.05 \<br>
+                            &nbsp;&nbsp;--with-memo <span class="string">"MEA-ISSUE-42"</span> \<br>
+                            &nbsp;&nbsp;--url mainnet-beta<br><br>
+                            <span class="comment"># Signature: 5KjX... Confirmed</span>
+                        </div>
                     </div>
                 </div>
+
+                <!-- STEP 4 -->
+                <div class="step-card">
+                    <div class="step-info">
+                        <span class="step-number">Step 04 // Decrypt & Apply</span>
+                        <h3>Instant Decryption Key</h3>
+                        <p>In seconds, the MEA Solana Oracle detects the payment. It replies to the GitHub thread revealing the AES-256 decryption key and IV. You decrypt the file locally and apply the patch to your code.</p>
+                    </div>
+                    <div class="step-visual">
+                        <div class="code-block">
+                            <span class="comment"># 1. Decrypt the downloaded patch</span><br>
+                            <span class="cmd">openssl</span> enc -d -aes-256-cbc \<br>
+                            &nbsp;&nbsp;-in mea_solution_issue42.enc \<br>
+                            &nbsp;&nbsp;-out fix.patch \<br>
+                            &nbsp;&nbsp;-K <span class="string">&lt;HEX_KEY_FROM_ORACLE&gt;</span> \<br>
+                            &nbsp;&nbsp;-iv <span class="string">&lt;HEX_IV_FROM_ORACLE&gt;</span><br><br>
+                            <span class="comment"># 2. Apply the patch to your repository</span><br>
+                            <span class="cmd">git</span> apply fix.patch<br><br>
+                            <span class="comment"># 3. Commit the perfectly typed code 🚀</span>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer style="padding: 40px 0; text-align: center; border-top: 1px solid var(--border-glass); color: var(--text-secondary); font-size: 0.9rem; background: var(--bg-main);">
         <div class="container">
-            <p>&copy; 2024 MEA Autonomous Economic Agent. Distributed under MIT License.</p>
-            <p style="margin-top: 8px;">Built with Sovereign Intelligence.</p>
+            <p>&copy; 2024 MEA Autonomous Economic Agent. MIT License.</p>
+            <p style="margin-top: 8px; color: var(--text-muted);">Sovereign Code. Sovereign Payments.</p>
         </div>
     </footer>
 
-    <!-- Inicializar Ícones Lucide -->
     <script>
         lucide.createIcons();
     </script>
